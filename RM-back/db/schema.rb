@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2019_06_13_174126) do
     t.string "species"
     t.string "gender"
     t.string "image"
+    t.string "origin"
+    t.string "current_location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -8,18 +8,22 @@
 
 require 'rest-client'
 
-rm = RestClient.get 'https://rickandmortyapi.com/api/character/'
+rick_morty_data = RestClient.get 'https://rickandmortyapi.com/api/character/'
 
-rm_array = JSON.parse(rm)["results"]
+
+rick_morty_array = JSON.parse(rick_morty_data)["results"]
+
 
 # rm_array[0]["name"] == "Rick Sanchez"
 
-rm_array.each do |character|
+rick_morty_array.each do |character|
   Character.create(
     name: character["name"],
     status: character["status"],
     species: character["species"],
     gender: character["gender"],
-    image: character["image"]
+    image: character["image"],
+    origin: character["origin"]["name"],
+    current_location: character["location"]["name"],
     )
 end
