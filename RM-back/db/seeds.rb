@@ -27,3 +27,7 @@ rick_morty_array.each do |character|
     current_location: character["location"]["name"],
     )
 end
+
+kristin = User.create(username: "koberlander", password: "password", notes: "i like things")
+
+fav1 = Favorite.create(character_id: 1, user_id: kristin.id)
